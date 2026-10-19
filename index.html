@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Peônia Decor | Decoração de Natal</title>
+  <meta name="description" content="Peônia Decor: decoração de Natal exclusiva em São Paulo, da ideia à montagem. Agenda Natal 2026 aberta — fale com a Margot ou a Andresa.">
+  <meta name="theme-color" content="#8A8962">
+
+  <!-- Prévia ao compartilhar (WhatsApp, Instagram, Facebook).
+       Depois de publicar, troque "logo.png" pelo endereço completo,
+       ex.: https://peoniadecor.com.br/logo.png — o WhatsApp prefere URL absoluta. -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Peônia Decor">
+  <meta property="og:title" content="Peônia Decor | Decoração de Natal">
+  <meta property="og:description" content="Natal com assinatura, da ideia à montagem. São Paulo · Agenda Natal 2026 aberta.">
+  <meta property="og:image" content="https://expedrog-dev.github.io/peonia-decor-url/logo.png">
+  <meta property="og:url" content="https://expedrog-dev.github.io/peonia-decor-url/">
+  <meta property="og:image:alt" content="Logo Peônia Decor: monograma PD dourado">
+  <meta name="twitter:card" content="summary">
+
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
+
+  <!-- Fontes: Cormorant Garamond (títulos) e Jost (botões) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ---------- Cores da marca ---------- */
+    :root {
+      --oliva: #8A8962;
+      --oliva-fundo: #6E6D49;   /* tom mais escuro para o degradê e contraste */
+      --oliva-escuro: #3B3A24;  /* texto dos botões */
+      --creme: #F7F1E3;
+      --ouro-claro: #F3D592;
+      --ouro: #CDA54D;
+      --ouro-gradiente: linear-gradient(135deg, var(--ouro-claro) 0%, var(--ouro) 100%);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body { height: 100%; }
+
+    body {
+      font-family: "Jost", system-ui, sans-serif;
+      color: var(--creme);
+      background-color: var(--oliva-fundo);
+      /* Brilho suave no topo + degradê vertical: dá profundidade sem pesar */
+      background-image:
+        radial-gradient(120% 70% at 50% 0%, rgba(243, 213, 146, .16) 0%, transparent 60%),
+        linear-gradient(180deg, var(--oliva) 0%, #7C7B55 50%, var(--oliva-fundo) 100%);
+      background-attachment: fixed;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Textura de grão bem sutil (SVG inline, sem arquivo extra) */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .07;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* ---------- Coluna única, centralizada, sem rolagem ---------- */
+    main {
+      position: relative;
+      max-width: 420px;
+      min-height: 100vh;
+      min-height: 100svh; /* altura real no navegador do Instagram */
+      margin: 0 auto;
+      padding: max(24px, env(safe-area-inset-top)) 24px max(24px, env(safe-area-inset-bottom));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(18px, 3.6vh, 30px);
+      text-align: center;
+    }
+
+    .logo {
+      width: 140px;
+      height: auto;
+      filter: drop-shadow(0 6px 14px rgba(40, 40, 20, .28));
+    }
+
+    /* Frase principal */
+    h1 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(1.65rem, 7vw, 2rem);
+      line-height: 1.15;
+      letter-spacing: .01em;
+      text-shadow: 0 1px 2px rgba(40, 40, 20, .25);
+    }
+
+    /* Palavra de destaque em dourado */
+    h1 em {
+      font-style: italic;
+      background: var(--ouro-gradiente);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: none;
+      filter: drop-shadow(0 1px 1px rgba(40, 40, 20, .35));
+    }
+
+    /* Filete dourado decorativo */
+    .filete {
+      width: 48px;
+      height: 1px;
+      background: var(--ouro-gradiente);
+      border: 0;
+      opacity: .9;
+    }
+
+    /* ---------- Botões ---------- */
+    .botoes {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .botao {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      min-height: 58px;
+      padding: 0 20px;
+      border-radius: 8px;
+      background: var(--creme);
+      color: var(--oliva-escuro);
+      font-family: "Jost", system-ui, sans-serif;
+      font-weight: 500;
+      font-size: 1rem;
+      letter-spacing: .06em;
+      text-decoration: none;
+      box-shadow: 0 8px 22px rgba(40, 40, 20, .22);
+      transition: transform .25s ease, box-shadow .25s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Borda dourada em degradê: fina no repouso, acesa no hover/toque */
+    .botao::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1.5px;
+      background: var(--ouro-gradiente);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: .35;
+      transition: opacity .25s ease, padding .25s ease;
+      pointer-events: none;
+    }
+
+    .botao:hover,
+    .botao:active,
+    .botao:focus-visible {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 26px rgba(40, 40, 20, .3);
+    }
+
+    .botao:hover::after,
+    .botao:active::after,
+    .botao:focus-visible::after {
+      opacity: 1;
+      padding: 2.5px;
+    }
+
+    .botao:focus-visible { outline: 2px solid var(--ouro-claro); outline-offset: 3px; }
+
+    .botao svg { width: 20px; height: 20px; flex-shrink: 0; fill: var(--oliva-escuro); }
+
+    /* ---------- Rodapé mínimo ---------- */
+    .info {
+      font-size: .8rem;
+      font-weight: 400;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--creme);
+      text-shadow: 0 1px 2px rgba(40, 40, 20, .35);
+    }
+
+    .instagram {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      color: var(--creme);
+      transition: color .25s ease, transform .25s ease;
+    }
+
+    .instagram:hover,
+    .instagram:focus-visible { color: var(--ouro-claro); transform: scale(1.06); }
+    .instagram:focus-visible { outline: 2px solid var(--ouro-claro); outline-offset: 2px; }
+    .instagram svg { width: 22px; height: 22px; }
+
+    .rodape { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+
+    /* Telas baixas (ex.: iPhone SE com barra do Instagram): compacta um pouco */
+    @media (max-height: 620px) {
+      main { gap: 14px; }
+      .logo { width: 116px; }
+      .botao { min-height: 52px; }
+    }
+
+    /* Celulares estreitos: texto do botão um pouco menor para caber em uma linha */
+    @media (max-width: 360px) {
+      .botao { font-size: .92rem; letter-spacing: .03em; padding: 0 14px; gap: 10px; }
+    }
+
+    /* ---------- Animação de entrada (fade-in em sequência) ---------- */
+    .surge {
+      opacity: 0;
+      transform: translateY(10px);
+      animation: surgir .9s cubic-bezier(.2, .7, .2, 1) forwards;
+    }
+    .surge:nth-child(1) { animation-delay: .05s; }
+    .surge:nth-child(2) { animation-delay: .2s; }
+    .surge:nth-child(3) { animation-delay: .3s; }
+    .surge:nth-child(4) { animation-delay: .42s; }
+    .surge:nth-child(5) { animation-delay: .56s; }
+
+    @keyframes surgir { to { opacity: 1; transform: none; } }
+
+    /* Quem pediu menos movimento no sistema vê tudo direto, sem animação */
+    @media (prefers-reduced-motion: reduce) {
+      .surge { opacity: 1; transform: none; animation: none; }
+      .botao, .botao::after, .instagram { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <img class="logo surge" src="logo.png" width="140" height="136"
+         alt="Peônia Decor — monograma PD dourado">
+
+    <h1 class="surge">Natal com <em>assinatura</em>,<br>da ideia à montagem</h1>
+
+    <hr class="filete surge" aria-hidden="true">
+
+    <nav class="botoes surge" aria-label="Fale conosco pelo WhatsApp">
+      <a class="botao" href="https://w.app/peoniadecorandresa" target="_blank" rel="noopener">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35ZM12.05 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.89 9.88Zm8.41-18.3A11.81 11.81 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41Z"/></svg>
+        Orçamento Natal · Andresa
+      </a>
+      <a class="botao" href="https://w.app/peoniadecormargot" target="_blank" rel="noopener">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35ZM12.05 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.89 9.88Zm8.41-18.3A11.81 11.81 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41Z"/></svg>
+        Orçamento Natal · Margot
+      </a>
+    </nav>
+
+    <div class="rodape surge">
+      <p class="info">São Paulo · Agenda Natal 2026 aberta</p>
+      <a class="instagram" href="https://instagram.com/peonia_decor" target="_blank" rel="noopener"
+         aria-label="Instagram da Peônia Decor (@peonia_decor)">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+          <rect x="3" y="3" width="18" height="18" rx="5"/>
+          <circle cx="12" cy="12" r="4.2"/>
+          <circle cx="17.4" cy="6.6" r=".6" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
+    </div>
+  </main>
+</body>
+</html>
